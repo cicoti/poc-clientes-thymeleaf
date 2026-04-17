@@ -48,11 +48,11 @@ public class UsuarioService {
             throw new IllegalArgumentException("As senhas não coincidem.");
         }
 
-        if (usuarioRepository.existsByUsername(usernameTratado)) {
+        if (usuarioRepository.existsByUsernameIgnoreCase(usernameTratado)) {
             throw new IllegalArgumentException("Já existe um usuário com esse login.");
         }
 
-        if (usuarioRepository.existsByEmail(emailTratado)) {
+        if (usuarioRepository.existsByEmailIgnoreCase(emailTratado)) {
             throw new IllegalArgumentException("Já existe um usuário com esse email.");
         }
 
