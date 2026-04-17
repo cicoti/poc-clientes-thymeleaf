@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<aside class="sidebar" th:fragment="menu(paginaAtiva)">
+    <div class="brand">
+        <a th:href="@{/}" class="text-white text-decoration-none">POC Clientes</a>
+    </div>
+
+    <nav class="nav flex-column mt-3">
+        <a th:href="@{/}"
+           th:classappend="${paginaAtiva == 'inicio'} ? ' active' : ''"
+           class="nav-link">
+            INÍCIO
+        </a>
+
+        <a th:href="@{/clientes}"
+           th:classappend="${paginaAtiva == 'clientes'} ? ' active' : ''"
+           class="nav-link">
+            CLIENTES
+        </a>
+    </nav>
+</aside>
+
+</body>
+</html>
