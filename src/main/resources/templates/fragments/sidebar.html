@@ -20,6 +20,15 @@
             CLIENTES
         </a>
     </nav>
+
+    <div class="mt-4">
+        <form th:action="@{/logout}" method="post" style="margin: 0;">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <button type="submit" class="nav-link btn btn-link w-100 text-start">
+                SAIR
+            </button>
+        </form>
+    </div>
 </aside>
 
 </body>
