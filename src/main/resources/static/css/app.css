@@ -1,6 +1,7 @@
 body {
     min-height: 100vh;
     background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
 }
 
 .sidebar {
@@ -41,6 +42,14 @@ body {
     color: #ffffff;
 }
 
+.sidebar .btn-link {
+    text-decoration: none;
+}
+
+.sidebar-logout-form {
+    margin: 0;
+}
+
 .btn-primary {
     background-color: #0b5ed7;
     border-color: #0b5ed7;
@@ -64,3 +73,135 @@ body {
     padding: 2rem;
 }
 
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: #f4f6f9;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.auth-card.auth-card-sm {
+    max-width: 360px;
+}
+
+.auth-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 1.25rem;
+}
+
+.auth-form-group {
+    margin-bottom: 1rem;
+}
+
+.auth-link-area {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.auth-link-area a {
+    color: #0b5ed7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-link-area a:hover {
+    text-decoration: underline;
+}
+
+.alert-box {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.alert-box-error {
+    background: #ffe5e5;
+    color: #a30000;
+}
+
+.alert-box-success {
+    background: #e7f7e7;
+    color: #1d6b1d;
+}
+
+.alert-box-info {
+    background: #eef4ff;
+    color: #1f4f99;
+    text-align: center;
+}
+
+.password-field {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.password-field .form-control {
+    flex: 1;
+    min-width: 0;
+}
+
+.btn-toggle-password {
+    min-width: 90px;
+    white-space: nowrap;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.page-user {
+    color: #6c757d;
+}
+
+.page-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .password-field {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-toggle-password {
+        width: 100%;
+    }
+
+    .page-header {
+        flex-direction: column;
+    }
+
+    .page-actions {
+        width: 100%;
+    }
+}

@@ -2,81 +2,39 @@
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Menu</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-            background: #f8f9fa;
-        }
-
-        .topo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .usuario {
-            color: #444;
-        }
-
-        .acoes {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        a, button {
-            padding: 10px 14px;
-            text-decoration: none;
-            border: 0;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        a {
-            background: #1f6feb;
-            color: white;
-        }
-
-        button {
-            background: #dc3545;
-            color: white;
-        }
-
-        .painel {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/app.css}">
 </head>
 <body>
-<div class="topo">
-    <div>
-        <h1>Menu principal</h1>
-        <div class="usuario">
-            Usuário logado:
-            <strong th:text="${username}">usuario</strong>
+<div class="d-flex">
+    <aside th:replace="~{fragments/sidebar :: menu('inicio')}"></aside>
+
+    <main class="content">
+        <div class="container-fluid">
+            <div class="page-header">
+                <div>
+                    <h1 class="mb-1">Menu principal</h1>
+                    <div class="page-user">
+                        Usuário logado:
+                        <strong th:text="${username}">usuario</strong>
+                    </div>
+                </div>
+
+                <div class="page-actions">
+                    <a th:href="@{/clientes}" class="btn btn-primary">Clientes</a>
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <p class="mb-2">Esta é a nova área protegida da aplicação.</p>
+                    <p class="text-muted mb-0">Aqui você pode mover o conteúdo da antiga index.html.</p>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="acoes">
-        <a th:href="@{/clientes}">Clientes</a>
-
-        <form th:action="@{/logout}" method="post" style="margin:0;">
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
-            <button type="submit">Sair</button>
-        </form>
-    </div>
-</div>
-
-<div class="painel">
-    <p>Esta é a nova área protegida da aplicação.</p>
-    <p>Aqui você pode mover o conteúdo da antiga index.html.</p>
+    </main>
 </div>
 </body>
 </html>
