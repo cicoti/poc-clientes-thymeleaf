@@ -1,6 +1,7 @@
 package br.com.ctech.pocclientes.controller;
 
 import br.com.ctech.pocclientes.entity.Cliente;
+import br.com.ctech.pocclientes.entity.Endereco;
 import br.com.ctech.pocclientes.service.ClienteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +28,10 @@ public class ClienteController {
 
     @GetMapping("/novo")
     public String novo(Model model) {
-        model.addAttribute("cliente", new Cliente());
+        Cliente cliente = new Cliente();
+        cliente.setEndereco(new Endereco());
+
+        model.addAttribute("cliente", cliente);
         return "clientes/formulario";
     }
 
@@ -41,6 +45,10 @@ public class ClienteController {
     public String editar(@PathVariable Long id, Model model) {
         Cliente cliente = clienteService.buscarPorId(id)
                 .orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado: " + id));
+
+        if (cliente.getEndereco() == null) {
+            cliente.setEndereco(new Endereco());
+        }
 
         model.addAttribute("cliente", cliente);
         return "clientes/formulario";
